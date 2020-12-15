@@ -33,7 +33,7 @@
 
 #include <visualization_msgs/InteractiveMarkerInit.h>
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include <boost/make_shared.hpp>
 
 namespace interactive_markers

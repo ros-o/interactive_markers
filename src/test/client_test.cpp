@@ -129,10 +129,10 @@ public:
 
     interactive_markers::InteractiveMarkerClient client(tf, target_frame, topic_ns );
 
-    client.setInitCb( boost::bind(&SequenceTest::initCb, this, _1 ) );
-    client.setUpdateCb( boost::bind(&SequenceTest::updateCb, this, _1 ) );
-    client.setResetCb( boost::bind(&SequenceTest::resetCb, this, _1 ) );
-    client.setStatusCb( boost::bind(&SequenceTest::statusCb, this, _1, _2, _3 ) );
+    client.setInitCb( boost::bind(&SequenceTest::initCb, this, boost::placeholders::_1 ) );
+    client.setUpdateCb( boost::bind(&SequenceTest::updateCb, this, boost::placeholders::_1 ) );
+    client.setResetCb( boost::bind(&SequenceTest::resetCb, this, boost::placeholders::_1 ) );
+    client.setStatusCb( boost::bind(&SequenceTest::statusCb, this, boost::placeholders::_1, boost::placeholders::_2, boost::placeholders::_3 ) );
 
     std::map< int, visualization_msgs::InteractiveMarkerInit > sent_init_msgs;
     std::map< int, visualization_msgs::InteractiveMarkerUpdate > sent_update_msgs;

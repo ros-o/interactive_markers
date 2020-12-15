@@ -32,7 +32,7 @@
 #include "interactive_markers/interactive_marker_client.h"
 #include "interactive_markers/detail/single_client.h"
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include <boost/make_shared.hpp>
 
 //#define DBG_MSG( ... ) ROS_DEBUG_NAMED( "interactive_markers", __VA_ARGS__ );
@@ -56,7 +56,7 @@ InteractiveMarkerClient::InteractiveMarkerClient(
   {
     subscribe( topic_ns );
   }
-  callbacks_.setStatusCb( boost::bind( &InteractiveMarkerClient::statusCb, this, _1, _2, _3 ) );
+  callbacks_.setStatusCb( boost::bind( &InteractiveMarkerClient::statusCb, this, boost::placeholders::_1, boost::placeholders::_2, boost::placeholders::_3 ) );
 }
 
 InteractiveMarkerClient::~InteractiveMarkerClient()

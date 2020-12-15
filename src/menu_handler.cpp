@@ -31,7 +31,7 @@
 
 #include "interactive_markers/menu_handler.h"
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include <boost/make_shared.hpp>
 
 namespace interactive_markers
@@ -152,7 +152,7 @@ bool MenuHandler::apply( InteractiveMarkerServer &server, const std::string &mar
   pushMenuEntries( top_level_handles_, int_marker.menu_entries, 0 );
 
   server.insert( int_marker );
-  server.setCallback( marker_name, boost::bind( &MenuHandler::processFeedback, this, _1 ), visualization_msgs::InteractiveMarkerFeedback::MENU_SELECT );
+  server.setCallback( marker_name, boost::bind( &MenuHandler::processFeedback, this, boost::placeholders::_1 ), visualization_msgs::InteractiveMarkerFeedback::MENU_SELECT );
   managed_markers_.insert( marker_name );
   return true;
 }

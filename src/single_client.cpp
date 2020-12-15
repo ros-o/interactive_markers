@@ -31,7 +31,7 @@
 
 #include "interactive_markers/detail/single_client.h"
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include <boost/make_shared.hpp>
 
 #define DBG_MSG( ... ) ROS_DEBUG( __VA_ARGS__ );
